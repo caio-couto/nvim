@@ -1,0 +1,11 @@
+# Local nvim runtime artifacts (state lives in ~/.local/share/nvim, not here)
+spell/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+
+# Editor
+.vim/
+.netrwhist
