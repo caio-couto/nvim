@@ -15,7 +15,7 @@ return {
     },
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-      ensure_installed = { "lua_ls", "ts_ls", "biome" },
+      ensure_installed = { "lua_ls", "ts_ls", "biome", "marksman" },
       -- Modern path: auto-enable installed servers via `vim.lsp.enable()`.
       -- Exclude `stylua`: it's installed via mason-tool-installer for use as a
       -- formatter (conform.nvim), not as an LSP server.
