@@ -15,7 +15,7 @@ return {
     },
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-      ensure_installed = { "lua_ls", "ts_ls", "biome", "marksman" },
+      ensure_installed = { "lua_ls", "ts_ls", "biome", "marksman", "tailwindcss" },
       -- Modern path: auto-enable installed servers via `vim.lsp.enable()`.
       -- Exclude `stylua`: it's installed via mason-tool-installer for use as a
       -- formatter (conform.nvim), not as an LSP server.
@@ -95,6 +95,24 @@ return {
             telemetry = { enable = false },
             diagnostics = { globals = { "vim" } },
           },
+        },
+      })
+
+      vim.lsp.config("tailwindcss", {
+        -- Only attach in real Tailwind projects — default root_dir falls back
+        -- to package.json/.git, which makes it scan every JS workspace.
+        root_markers = {
+          "tailwind.config.js", "tailwind.config.cjs",
+          "tailwind.config.mjs", "tailwind.config.ts",
+          "postcss.config.js",  "postcss.config.cjs",
+          "postcss.config.mjs", "postcss.config.ts",
+        },
+        -- Drop the massive default list down to what we actually use.
+        filetypes = {
+          "html", "css", "scss", "sass", "less",
+          "javascript", "javascriptreact",
+          "typescript", "typescriptreact",
+          "vue", "svelte", "astro",
         },
       })
 
