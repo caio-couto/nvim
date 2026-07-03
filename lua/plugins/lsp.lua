@@ -5,6 +5,12 @@ return {
     cmd = { "Mason", "MasonInstall", "MasonUpdate", "MasonUninstall" },
     opts = {
       ui = { border = "rounded" },
+      -- Registro extra do Crashdummyy: contém o pacote `roslyn` (LSP de C#),
+      -- que não existe no registro oficial do Mason.
+      registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+      },
     },
   },
   {
@@ -19,7 +25,8 @@ return {
       -- Modern path: auto-enable installed servers via `vim.lsp.enable()`.
       -- Exclude `stylua`: it's installed via mason-tool-installer for use as a
       -- formatter (conform.nvim), not as an LSP server.
-      automatic_enable = { exclude = { "stylua" } },
+      -- Exclude `roslyn`: the C# server is managed by roslyn.nvim, not lspconfig.
+      automatic_enable = { exclude = { "stylua", "roslyn" } },
     },
   },
   {
@@ -27,7 +34,7 @@ return {
     dependencies = { "mason-org/mason.nvim" },
     event = { "BufReadPre", "BufNewFile" },
     opts = {
-      ensure_installed = { "stylua", "biome" },
+      ensure_installed = { "stylua", "biome", "csharpier", "roslyn" },
       auto_update = false,
       run_on_start = true,
     },

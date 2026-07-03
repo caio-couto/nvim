@@ -19,6 +19,7 @@ return {
 				"typescript",
 				"javascript",
 				"rust",
+				"c_sharp",
 				"toml",
 				"json",
 				"yaml",

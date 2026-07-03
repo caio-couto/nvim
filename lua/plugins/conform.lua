@@ -23,6 +23,7 @@ return {
         json            = { "biome" },
         jsonc           = { "biome" },
         rust            = { "rustfmt" },
+        cs              = { "csharpier" },
         lua             = { "stylua" },
       },
       format_on_save = function(buf)
