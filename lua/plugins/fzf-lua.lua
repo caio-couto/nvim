@@ -18,6 +18,11 @@ return {
       { "<leader>fc",  "<cmd>FzfLua commands<cr>",         desc = "Commands" },
       { "<leader>fk",  "<cmd>FzfLua keymaps<cr>",          desc = "Keymaps (live)" },
     },
+    config = function(_, opts)
+      local fzf = require("fzf-lua")
+      fzf.setup(opts)
+      fzf.register_ui_select()
+    end,
     opts = {
       "telescope",       -- profile: telescope-like UX
       winopts = {

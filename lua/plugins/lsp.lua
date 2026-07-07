@@ -77,7 +77,7 @@ return {
           map("n", "<F2>",      vim.lsp.buf.rename,         "Rename symbol")
           map("n", "<F12>",     vim.lsp.buf.definition,     "Go to definition")
           map("n", "<S-F12>",   vim.lsp.buf.references,     "References")
-          local code_action = function() vim.cmd("FzfLua lsp_code_actions") end
+          local code_action = function() vim.lsp.buf.code_action() end
           map({ "n", "v" }, "<C-.>",      code_action,              "Code action")
           map("n", "<leader>cr", vim.lsp.buf.rename,                 "Rename symbol")
           map({ "n", "v" }, "<leader>ca", code_action,               "Code action")
