@@ -2,6 +2,7 @@ return {
   {
     "ibhagwan/fzf-lua",
     cmd = "FzfLua",
+    event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     keys = {
       -- VSCode-style
